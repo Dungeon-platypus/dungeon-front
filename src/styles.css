@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fonts */
+@font-face {
+  font-family: 'pzim3x5b';
+  src: url('/assets/fonts/pzim3x5b.ttf') format('truetype');
+}
+
+* {
+  font-family: 'pzim3x5b';
+  color: #8D5316;
+  text-shadow: -5px 5px 50px black;
+}
+
+body {
+  background-image: url(assets/backgrounds/wall.jpg);
+}
+
+h1 {
+  font-size: 6vw;
+}
