@@ -9,15 +9,31 @@
 
     <div class="card">
       <div class="card-body">
-        <form>
+        <form (ngSubmit)="connexion()" #connexionForm="ngForm">
+
           <div class="form-group">
             <label for="inputEmail">Email :</label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="email"
-              placeholder="Votre email">
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="email" [(ngModel)]="user.email"
+              name="email" #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              [class.is-invalid]="email.invalid && email.touched">
+
+            <div *ngIf="(email.dirty || email.touched) && email.invalid">
+              <small>Veuillez renseigner un email valide.</small>
+            </div>
           </div>
+
           <div class="form-group">
             <label for="inputPassword">Mot de passe : </label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="mot de passe">
+            <input type="password" class="form-control" id="inputPassword" [(ngModel)]="user.mdp" name="mdp"
+              #mdp="ngModel" required [class.is-invalid]="mdp.invalid && mdp.touched">
+
+            <div *ngIf="(mdp.dirty || mdp.touched) && mdp.invalid">
+              <small>Veuillez renseigner un mot de passe.</small>
+            </div>
+          </div>
+
+          <div *ngIf="erreurConnexion" class="alert alert-danger p-1" role="alert">
+            <strong>Connexion impossible.</strong>
           </div>
 
           <div class="row d-flex justify-content-center text-center">

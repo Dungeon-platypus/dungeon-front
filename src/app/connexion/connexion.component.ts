@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-connexion',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
+  user: User = new User({});
+
+  // erreurs
+  erreurConnexion = false;
+
   constructor() { }
+
+  connexion(){
+
+    this.erreurConnexion = true;
+  }
 
   ngOnInit(): void {
   }
