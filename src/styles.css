@@ -4,8 +4,19 @@
   src: url('/assets/fonts/pzim3x5b.ttf') format('truetype');
 }
 
-* {
+@font-face {
+  font-family: 'pzim3x5';
+  src: url('/assets/fonts/pzim3x5.ttf') format('truetype');
+}
+
+h1 {
   font-family: 'pzim3x5b';
+  color: #8D5316;
+  text-shadow: -5px 5px 50px black;
+}
+
+* {
+  font-family: 'pzim3x5';
   color: #8D5316;
   text-shadow: -5px 5px 50px black;
 }

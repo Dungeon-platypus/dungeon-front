@@ -1,0 +1,12 @@
+.card {
+  width: 60%;
+  background-color: rgba(65, 60, 60, 0.671);
+  font-size: xx-large;
+  border-color: #8D5316;
+  border-width: 5px;
+}
+
+.btn {
+  font-size: xx-large;
+  color: #8D5316;
+}
