@@ -1,3 +1,5 @@
+@import '~animate.css/animate.min';
+
 /* Fonts */
 @font-face {
   font-family: 'pzim3x5b';
@@ -13,6 +15,13 @@ h1 {
   font-family: 'pzim3x5b';
   color: #8D5316;
   text-shadow: -5px 5px 50px black;
+  font-size: 6vw;
+}
+
+@media only screen and (max-width: 800px){
+  h1 {
+    font-size: 50px !important;
+  }
 }
 
 * {
@@ -23,8 +32,4 @@ h1 {
 
 body {
   background-image: url(assets/backgrounds/wall.jpg);
-}
-
-h1 {
-  font-size: 6vw;
 }
