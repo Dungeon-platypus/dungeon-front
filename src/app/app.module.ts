@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     NgbModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
