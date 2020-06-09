@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -13,11 +14,23 @@ export class ConnexionComponent implements OnInit {
   // erreurs
   erreurConnexion = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  connexion(){
+  connexion() {
 
     this.erreurConnexion = true;
+  }
+
+  fadeOutRightAndNextRoute(route: string) {
+
+    const element = document.querySelector('.card');
+
+    element.classList.add('animate__animated', 'animate__fadeOutRight');
+
+    element.addEventListener('animationend', () => {
+      this.router.navigate([route]);
+    });
+
   }
 
   ngOnInit(): void {
