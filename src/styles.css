@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~animate.css/animate.min';
+
+/* Fonts */
+@font-face {
+  font-family: 'pzim3x5b';
+  src: url('/assets/fonts/pzim3x5b.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pzim3x5';
+  src: url('/assets/fonts/pzim3x5.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pixel12x10';
+  src: url('/assets/fonts/Pixel12x10.ttf') format('truetype');
+}
+
+h1 {
+  font-family: 'pzim3x5b';
+  color: #8D5316;
+  text-shadow: -5px 5px 50px black;
+  font-size: 6.3vw;
+}
+
+@media only screen and (max-width: 800px){
+  h1 {
+    font-size: 50px !important;
+  }
+}
+
+* {
+  font-family: 'pzim3x5';
+  color: #8D5316;
+  text-shadow: -5px 5px 50px black;
+}
+
+body {
+  background-image: url(assets/backgrounds/wall.jpg);
+}

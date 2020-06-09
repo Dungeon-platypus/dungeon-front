@@ -1,0 +1,38 @@
+.card {
+  width: 65%;
+  background-color: rgba(65, 60, 60, 0.671);
+  font-size: x-large;
+  border-color: #8D5316;
+  border-width: 5px;
+}
+
+
+.btn {
+  font-size: xx-large;
+  color: #8D5316;
+}
+
+.btn:hover {
+  animation: pulse 2s infinite;
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 4px solid #8D5316;
+  animation: pulse 2s 2;
+}
+
+.alert-danger {
+  display:inline-block;
+  background: none !important;
+  border: none!important;
+}
+
+.alert-danger strong {
+  color: rgba(110, 1, 1, 0.678)
+}
+
+input {
+  font-family: 'Pixel12x10';
+}
