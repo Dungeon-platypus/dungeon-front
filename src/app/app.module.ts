@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ConnexionComponent } from './home-page/connexion/connexion.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { InscriptionComponent } from './home-page/inscription/inscription.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,14 @@ import { InscriptionComponent } from './home-page/inscription/inscription.compon
     ConnexionComponent,
     HomePageComponent,
     InscriptionComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
+    HomePageModule,
     AppRoutingModule,
-    HomePageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
