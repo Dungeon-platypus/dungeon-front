@@ -10,6 +10,7 @@ import { ConnexionComponent } from './home-page/connexion/connexion.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { InscriptionComponent } from './home-page/inscription/inscription.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule,
     HomePageModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

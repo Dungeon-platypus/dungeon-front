@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { AuthentificationService } from 'src/app/services/authentification/authentification.service';
 
 @Component({
   selector: 'app-connexion',
@@ -14,11 +15,17 @@ export class ConnexionComponent implements OnInit {
   // erreurs
   erreurConnexion = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authentificationService: AuthentificationService) { }
 
+  /** Envoie une demande d'authentification au serveur */
   connexion() {
 
-    this.erreurConnexion = true;
+    this.erreurConnexion = false;
+
+    this.authentificationService.postAuthentification(this.user).subscribe(
+      () => this.router.navigate(['/profil']),
+      (error) => this.erreurConnexion = true,
+    );
   }
 
   fadeOutRightAndNextRoute(route: string) {

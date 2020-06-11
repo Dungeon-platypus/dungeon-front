@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 import { ConditionalExpr } from '@angular/compiler';
+import { InscriptionService } from 'src/app/services/inscription/inscription.service';
 
 @Component({
   selector: 'app-inscription',
@@ -10,9 +11,13 @@ import { ConditionalExpr } from '@angular/compiler';
 })
 export class InscriptionComponent implements OnInit {
 
+  // formaulaire inscription
   inscriptionForm: FormGroup;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  // erreurs
+  erreurInscription = false;
+
+  constructor(private router: Router, private formBuilder: FormBuilder, private inscriptionService: InscriptionService) {
 
     this.inscriptionForm = this.formBuilder.group(
       {
@@ -53,8 +58,15 @@ export class InscriptionComponent implements OnInit {
     };
   }
 
+  /** Appel le service inscription pour envoyer la demande au serveur */
   inscription(){
-    console.log(this.inscriptionForm.value);
+
+    this.erreurInscription = false;
+
+    this.inscriptionService.postInscription(this.inscriptionForm.value).subscribe(
+      () => this.router.navigate(['/connexion']),
+      (error) => this.erreurInscription = true,
+    );
   }
 
   fadeOutRightAndNextRoute(route: string) {
