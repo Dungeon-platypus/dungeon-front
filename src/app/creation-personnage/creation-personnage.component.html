@@ -1,1 +1,13 @@
-<p>creation-personnage works!</p>
+<div class="row">
+
+  <div class="col-12 text-center mb-5">
+    <h2>Création personnage</h2>
+  </div>
+
+    <ng-container *ngFor="let classe of classes">
+      <div class="col-12 col-md-4 d-flex justify-content-around">
+        <div class="btn">{{classe.name}}</div>
+      </div>
+    </ng-container>
+
+</div>
