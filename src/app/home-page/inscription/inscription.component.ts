@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
-import { ConditionalExpr } from '@angular/compiler';
 import { InscriptionService } from 'src/app/services/inscription/inscription.service';
+import { exitElementFadeOutRight } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-inscription',
@@ -13,6 +13,9 @@ export class InscriptionComponent implements OnInit {
 
   // formaulaire inscription
   inscriptionForm: FormGroup;
+
+  // exit card
+  exit = exitElementFadeOutRight;
 
   // erreurs
   erreurInscription = false;
@@ -67,18 +70,6 @@ export class InscriptionComponent implements OnInit {
       () => this.router.navigate(['/connexion']),
       (error) => this.erreurInscription = true,
     );
-  }
-
-  fadeOutRightAndNextRoute(route: string) {
-
-    const element = document.querySelector('.card');
-
-    element.classList.add('animate__animated', 'animate__fadeOutRight');
-
-    element.addEventListener('animationend', () => {
-      this.router.navigate([route]);
-    });
-
   }
 
   ngOnInit(): void {

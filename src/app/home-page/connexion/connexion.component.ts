@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/services/authentification/authentification.service';
+import { exitElementFadeOutRight } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-connexion',
@@ -11,6 +12,8 @@ import { AuthentificationService } from 'src/app/services/authentification/authe
 export class ConnexionComponent implements OnInit {
 
   user: User = new User({});
+
+  exit = exitElementFadeOutRight;
 
   // erreurs
   erreurConnexion = false;
@@ -26,18 +29,6 @@ export class ConnexionComponent implements OnInit {
       () => this.router.navigate(['/profil']),
       (error) => this.erreurConnexion = true,
     );
-  }
-
-  fadeOutRightAndNextRoute(route: string) {
-
-    const element = document.querySelector('.card');
-
-    element.classList.add('animate__animated', 'animate__fadeOutRight');
-
-    element.addEventListener('animationend', () => {
-      this.router.navigate([route]);
-    });
-
   }
 
   ngOnInit(): void {
