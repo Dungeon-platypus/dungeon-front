@@ -11,6 +11,11 @@ const routes: Routes = [
   component: HomePageComponent,
   children: [
     {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: '/connexion'
+    },
+    {
     path: 'connexion',
     component: ConnexionComponent
     },

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageModule } from './home-page/home-page.module';
 
@@ -10,6 +10,7 @@ import { ConnexionComponent } from './home-page/connexion/connexion.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { InscriptionComponent } from './home-page/inscription/inscription.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     HomePageModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
