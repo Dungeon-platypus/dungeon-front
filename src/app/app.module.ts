@@ -11,6 +11,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { InscriptionComponent } from './home-page/inscription/inscription.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreationPersonnageComponent } from './creation-personnage/creation-personnage.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     InscriptionComponent,
     NotFoundComponent,
+    CreationPersonnageComponent,
   ],
   imports: [
     BrowserModule,
