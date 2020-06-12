@@ -12,6 +12,7 @@ import { InscriptionComponent } from './home-page/inscription/inscription.compon
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreationPersonnageComponent } from './creation-personnage/creation-personnage.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CreationPersonnageComponent } from './creation-personnage/creation-pers
     ReactiveFormsModule,
     HomePageModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

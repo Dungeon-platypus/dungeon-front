@@ -1,19 +1,16 @@
-.btn {
+@import url('../css/button.css');
+@import url('../css/card.css');
+
+.select-classe {
   font-size: 50px;
-  color: #8D5316;
 }
 
-.btn:hover {
-  animation: pulse 2s infinite;
+fa-icon {
+  font-size: 35px;
 }
 
-.btn:focus, .btn:active {
-  outline: none !important;
-  box-shadow: none !important;
-  border: 4px solid #8D5316;
-  animation: pulse 2s 2;
-}
-
-.btn:disabled {
-  animation: none;
+@media only screen and (max-width: 600px){
+  .select-classe {
+    font-size: 45px;
+  }
 }

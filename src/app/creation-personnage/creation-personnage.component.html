@@ -4,10 +4,23 @@
     <h2>Création personnage</h2>
   </div>
 
-    <ng-container *ngFor="let classe of classes">
-      <div class="col-12 col-md-4 d-flex justify-content-around">
-        <div class="btn">{{classe.name}}</div>
+  <div class="col-12 d-flex justify-content-center">
+    <div class="card">
+      <div class="card-body d-flex justify-content-center flex-wrap">
+
+        <ng-container *ngFor="let classe of classes">
+          <div class="col-12 col-md-4 d-flex justify-content-center">
+            <div class="btn select-classe" (click)="generationPersonnage(classe)">
+              {{classe.name}}<fa-icon *ngIf="selectedClasse === classe" [icon]="faCheck"></fa-icon>
+            </div>
+          </div>
+        </ng-container>
+
       </div>
-    </ng-container>
+    </div>
+  </div>
+
+
+
 
 </div>
