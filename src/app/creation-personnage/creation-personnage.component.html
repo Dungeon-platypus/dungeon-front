@@ -4,6 +4,7 @@
     <h2>Création personnage</h2>
   </div>
 
+  <!-- Selection classe -->
   <div class="col-12 d-flex justify-content-center">
     <div class="card">
       <div class="card-body d-flex justify-content-center flex-wrap">
@@ -20,7 +21,140 @@
     </div>
   </div>
 
+  <!-- Choix des stats -->
+  <ng-container *ngIf="selectedClasse">
+    <div class="col-12 d-flex justify-content-center mt-4">
+      <div class="card">
+        <div class="card-body row">
 
+          <!-- Image -->
+          <div class="col-12 col-md-3 d-flex justify-content-center">
+            <img class="img-fluid" src="../../assets/images/Platypus_Running.gif">
+          </div>
 
+          <!-- Caractéristiques -->
+          <div class="col-12 col-md-9 ">
+
+            <!-- Infos -->
+            <div class="row d-flex align-items-center">
+              <div class="col-12 col-md-6">
+                <h3>Klaff the platypus knight <fa-icon class="btn" [icon]="faPencilAlt"></fa-icon></h3>
+              </div>
+              <div class="col-12 col-md-3">
+                <h3> - {{selectedClasse.name}}</h3>
+              </div>
+              <div class="col-12 col-md-3 text-right">
+                <div class="btn">Reroll</div>
+              </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="row d-flex">
+              <div class="col-12 col-md-6">
+
+                <div class="col-12 d-flex statistique">
+                  <div class="col-7">
+                    Niveau:1
+                  </div>
+                </div>
+
+                <div class="col-12 d-flex statistique">
+                  <div class="col-7">
+                    HP:125
+                  </div>
+                  <div class="col-5">
+                    <button class="btn">
+                      <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button>
+                    <button class="btn">
+                      <fa-icon [icon]="faMinusSquare"></fa-icon>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="col-12 d-flex statistique">
+                  <div class="col-7">
+                    MP:75
+                  </div>
+                  <div class="col-5">
+                    <button class="btn">
+                      <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button>
+                    <button class="btn">
+                      <fa-icon [icon]="faMinusSquare"></fa-icon>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-12 col-md-6">
+
+                <div class="col-12 d-flex statistique">
+                  <div class="col-7">
+                    Force:17
+                  </div>
+                  <div class="col-5">
+                    <button class="btn">
+                      <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button>
+                    <button class="btn">
+                      <fa-icon [icon]="faMinusSquare"></fa-icon>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="col-12 d-flex statistique">
+                  <div class="col-7">
+                    Intelligence:9
+                  </div>
+                  <div class="col-5">
+                    <button class="btn">
+                      <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button>
+                    <button class="btn">
+                      <fa-icon [icon]="faMinusSquare"></fa-icon>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="col-12 d-flex statistique">
+                  <div class="col-7">
+                    Dextérité:12
+                  </div>
+                  <div class="col-5">
+                    <button class="btn">
+                      <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button>
+                    <button class="btn">
+                      <fa-icon [icon]="faMinusSquare"></fa-icon>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Points caracs -->
+            <div class="row">
+              <div class="col-12 col-md-6 text-center">
+                Points de caractéristiques totals:92
+              </div>
+
+              <div class="col-12 col-md-6 text-center">
+                Points de caractéristiques restants:7
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center mt-2">
+      <div class="btn termine">Terminé</div>
+    </div>
+
+  </ng-container>
 
 </div>

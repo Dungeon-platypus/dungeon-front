@@ -5,8 +5,20 @@
   font-size: 50px;
 }
 
+.statistique, .statistique fa-icon {
+  font-size: 30px;
+}
+
 fa-icon {
   font-size: 35px;
+}
+
+h3, h3 fa-icon {
+  font-size: xx-large;
+}
+
+.termine {
+  font-size: 80px;
 }
 
 @media only screen and (max-width: 600px){

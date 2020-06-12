@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreationPersonnageService } from '../services/creation-personnage/creation-personnage.service';
 import { Classe } from '../models/classe';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faPencilAlt, faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-creation-personnage',
@@ -16,6 +16,9 @@ export class CreationPersonnageComponent implements OnInit {
 
   // icons
   faCheck = faCheck;
+  faPencilAlt = faPencilAlt;
+  faPlusSquare = faPlusSquare;
+  faMinusSquare = faMinusSquare;
 
   // erreurs
   erreursGetClasses = false;
@@ -34,7 +37,6 @@ export class CreationPersonnageComponent implements OnInit {
       () => this.erreursGetClasses = true,
     );
 
-    console.log(this.classes);
   }
 
 }

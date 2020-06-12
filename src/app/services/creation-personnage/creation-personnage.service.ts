@@ -18,8 +18,7 @@ export class CreationPersonnageService {
     // return this.http.get<Classe[]>(`${BACKEND_URL}/classe/all`);
 
     // temp
-    const classeArray = [new Classe({name: 'guerrier'}), new Classe({name: 'mage'}), new Classe({name: 'archer'}),
-     new Classe({name: 'invocateur'}), new Classe({name: 'pretre'})];
+    const classeArray = [new Classe({name: 'guerrier'}), new Classe({name: 'mage'}), new Classe({name: 'archer'})];
     return of(classeArray);
   }
 }
