@@ -11,9 +11,12 @@
 
         <ng-container *ngFor="let classe of classes">
           <div class="col-12 col-md-4 d-flex justify-content-center">
-            <div class="btn select-classe" (click)="generationPersonnage(classe)">
-              {{classe.name}}<fa-icon *ngIf="selectedClasse === classe" [icon]="faCheck"></fa-icon>
-            </div>
+            <button class="btn select-classe" (click)="generationPersonnage(classe)">
+              {{classe.name}}
+              <ng-container *ngIf="selectedClasse != null && selectedClasse.name === classe.name">
+                <fa-icon [icon]="faCheck"></fa-icon>
+              </ng-container>
+            </button>
           </div>
         </ng-container>
 
@@ -37,50 +40,51 @@
 
             <!-- Infos -->
             <div class="row d-flex align-items-center">
-              <div class="col-12 col-md-6">
-                <h3>Klaff the platypus knight <fa-icon class="btn" [icon]="faPencilAlt"></fa-icon></h3>
+              <div class="col-12 col-md-7">
+                <h3>Klaff the platypus knight <fa-icon class="btn" [icon]="faPencilAlt"></fa-icon>
+                </h3>
               </div>
               <div class="col-12 col-md-3">
-                <h3> - {{selectedClasse.name}}</h3>
+                <h3>{{selectedClasse.name}}</h3>
               </div>
-              <div class="col-12 col-md-3 text-right">
-                <div class="btn">Reroll</div>
+              <div class="col-12 col-md-2 text-right">
+                <button class="btn" (click)="generationPersonnage(selectedClasse)">Reroll</button>
               </div>
             </div>
 
             <!-- Stats -->
-            <div class="row d-flex">
+            <div class="row d-flex py-4">
               <div class="col-12 col-md-6">
 
-                <div class="col-12 d-flex statistique">
-                  <div class="col-7">
-                    Niveau:1
+                <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
+                  <div class="">
+                    Niveau: {{selectedClasse.niveau}}
                   </div>
                 </div>
 
-                <div class="col-12 d-flex statistique">
-                  <div class="col-7">
-                    HP:125
-                  </div>
-                  <div class="col-5">
-                    <button class="btn">
+                <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
+                  HP: {{selectedClasse.hp}}
+                  <div class="">
+                    <button class="btn" (click)="plusStatistique('hp')"
+                    [disabled]="disableStatButton('hp', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
-                    <button class="btn">
+                    <button class="btn" (click)="minusStatistique('hp')"
+                    [disabled]="disableStatButton('hp', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
                 </div>
 
-                <div class="col-12 d-flex statistique">
-                  <div class="col-7">
-                    MP:75
-                  </div>
-                  <div class="col-5">
-                    <button class="btn">
+                <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
+                  MP: {{selectedClasse.mp}}
+                  <div class="">
+                    <button class="btn" (click)="plusStatistique('mp')"
+                    [disabled]="disableStatButton('mp', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
-                    <button class="btn">
+                    <button class="btn" (click)="minusStatistique('mp')"
+                    [disabled]="disableStatButton('mp', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
@@ -89,43 +93,43 @@
               </div>
               <div class="col-12 col-md-6">
 
-                <div class="col-12 d-flex statistique">
-                  <div class="col-7">
-                    Force:17
-                  </div>
-                  <div class="col-5">
-                    <button class="btn">
+                <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
+                  Force: {{selectedClasse.force}}
+                  <div class="">
+                    <button class="btn" (click)="plusStatistique('force')"
+                    [disabled]="disableStatButton('force', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
-                    <button class="btn">
+                    <button class="btn" (click)="minusStatistique('force')"
+                    [disabled]="disableStatButton('force', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
                 </div>
 
-                <div class="col-12 d-flex statistique">
-                  <div class="col-7">
-                    Intelligence:9
-                  </div>
-                  <div class="col-5">
-                    <button class="btn">
+                <div class="col-12 statistique m-0 p-0 d-flex justify-content-between flex-wrap">
+                  Intelligence: {{selectedClasse.intelligence}}
+                  <div class="">
+                    <button class="btn" (click)="plusStatistique('intelligence')"
+                    [disabled]="disableStatButton('intelligence', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
-                    <button class="btn">
+                    <button class="btn" (click)="minusStatistique('intelligence')"
+                    [disabled]="disableStatButton('intelligence', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
                 </div>
 
-                <div class="col-12 d-flex statistique">
-                  <div class="col-7">
-                    Dextérité:12
-                  </div>
-                  <div class="col-5">
-                    <button class="btn">
+                <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
+                  Dextérité: {{selectedClasse.dexterite}}
+                  <div class="">
+                    <button class="btn" (click)="plusStatistique('dexterite')"
+                    [disabled]="disableStatButton('dexterite', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
-                    <button class="btn">
+                    <button class="btn" (click)="minusStatistique('dexterite')"
+                    [disabled]="disableStatButton('dexterite', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
@@ -135,13 +139,13 @@
             </div>
 
             <!-- Points caracs -->
-            <div class="row">
+            <div class="row pt-4">
               <div class="col-12 col-md-6 text-center">
-                Points de caractéristiques totals:92
+                Points de caractéristiques totals: {{selectedClasse.pointsCaracTotal}}
               </div>
 
               <div class="col-12 col-md-6 text-center">
-                Points de caractéristiques restants:7
+                Points de caractéristiques restants: {{selectedClasse.pointsCaracRestant}}
               </div>
             </div>
 
@@ -152,7 +156,7 @@
     </div>
 
     <div class="col-12 d-flex justify-content-center mt-2">
-      <div class="btn termine">Terminé</div>
+      <button class="btn termine">Terminé</button>
     </div>
 
   </ng-container>

@@ -21,4 +21,18 @@ export class CreationPersonnageService {
     const classeArray = [new Classe({name: 'guerrier'}), new Classe({name: 'mage'}), new Classe({name: 'archer'})];
     return of(classeArray);
   }
+
+  getGenerationPersonnage(classeName: string): Observable<Classe>{
+
+    //return this.http.get<Classe>(`${BACKEND_URL}/generation?classe=${classeName}`);
+
+    // temp
+    const classeGenerer = new Classe({name: classeName, niveau: 1, hp: 125, mp: 75,
+      force: 15, minForce: 9, maxForce: 19,
+      intelligence: 5, minIntelligence: 2, maxIntelligence: 15,
+      dexterite: 13, minDexterite: 6, maxDexterite: 16,
+      pointsCaracRestant: 7, pointsCaracTotal: 80 });
+
+    return of(classeGenerer);
+  }
 }

@@ -22,11 +22,71 @@ export class CreationPersonnageComponent implements OnInit {
 
   // erreurs
   erreursGetClasses = false;
+  erreurGenerationPersonnage = false;
+  erreurChangementStat = false;
 
-  constructor(private creationPersonnageService: CreationPersonnageService ) { }
+  constructor(private creationPersonnageService: CreationPersonnageService) { }
 
-  generationPersonnage(classeSelect: Classe){
-    this.selectedClasse = classeSelect;
+  /** Envoie une requête au serveur pour obtenir la génération d'un personnage */
+  generationPersonnage(classeSelect: Classe) {
+
+    this.erreurGenerationPersonnage = false;
+
+    this.creationPersonnageService.getGenerationPersonnage(classeSelect.name).subscribe(
+      (classeGenerer) => this.selectedClasse = classeGenerer,
+      () => this.erreurGenerationPersonnage = true,
+    );
+  }
+
+  /** Ajoute un point à la cractéristiques donnée si possible */
+  plusStatistique(statName: string) {
+
+    const maxStatName = 'max' + statName[0].toUpperCase() + statName.substring(1);
+
+    if (this.selectedClasse.pointsCaracRestant > 0) {
+
+      if (statName === 'hp' || statName === 'mp') {
+
+        this.selectedClasse[statName] += 5;
+        this.selectedClasse.pointsCaracRestant--;
+
+      } else if (this.selectedClasse[statName] < this.selectedClasse[maxStatName]) {
+
+        this.selectedClasse[statName]++;
+        this.selectedClasse.pointsCaracRestant--;
+      }
+    }
+  }
+
+  /** Enlève un point à la cractéristiques donnée si possible */
+  minusStatistique(statName: string) {
+
+    const minStatName = 'min' + statName[0].toUpperCase() + statName.substring(1);
+
+    if ((statName === 'hp' || statName === 'mp') && this.selectedClasse[statName] > 5) {
+
+      this.selectedClasse[statName] -= 5;
+      this.selectedClasse.pointsCaracRestant++;
+
+    } else if (this.selectedClasse[statName] > this.selectedClasse[minStatName]) {
+
+      this.selectedClasse[statName]--;
+      this.selectedClasse.pointsCaracRestant++;
+    }
+
+
+  }
+
+  /** Indique si un boutons de stats doit être désactivé  */
+  disableStatButton(statName: string, typeButton: string) {
+
+    const maxStatName = 'max' + statName[0].toUpperCase() + statName.substring(1);
+    const minStatName = 'min' + statName[0].toUpperCase() + statName.substring(1);
+
+    return ((statName === 'hp' || statName === 'mp') && typeButton === '-' && this.selectedClasse[statName] === 5)
+      || (typeButton === '+' && this.selectedClasse.pointsCaracRestant === 0)
+      || (typeButton === '+' && this.selectedClasse[statName] === this.selectedClasse[maxStatName])
+      || (typeButton === '-' && this.selectedClasse[statName] === this.selectedClasse[minStatName]);
   }
 
   ngOnInit(): void {
