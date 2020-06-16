@@ -14,6 +14,9 @@ export class CreationPersonnageComponent implements OnInit {
   classes: Classe[];
   selectedClasse: Classe;
 
+  // modification pseudo
+  modifierPseudo = false;
+
   // icons
   faCheck = faCheck;
   faPencilAlt = faPencilAlt;
@@ -48,7 +51,7 @@ export class CreationPersonnageComponent implements OnInit {
       if (statName === 'hp' || statName === 'mp') {
 
         this.selectedClasse[statName] += 5;
-        this.selectedClasse.pointsCaracRestant--;
+        this.selectedClasse.pointsCaracRestant --;
 
       } else if (this.selectedClasse[statName] < this.selectedClasse[maxStatName]) {
 
@@ -66,11 +69,11 @@ export class CreationPersonnageComponent implements OnInit {
     if ((statName === 'hp' || statName === 'mp') && this.selectedClasse[statName] > 5) {
 
       this.selectedClasse[statName] -= 5;
-      this.selectedClasse.pointsCaracRestant++;
+      this.selectedClasse.pointsCaracRestant ++;
 
     } else if (this.selectedClasse[statName] > this.selectedClasse[minStatName]) {
 
-      this.selectedClasse[statName]--;
+      this.selectedClasse[statName] --;
       this.selectedClasse.pointsCaracRestant++;
     }
 

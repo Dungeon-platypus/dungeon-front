@@ -2,6 +2,7 @@ export class Classe {
 
   name: string;
   niveau: number;
+  pseudo: string;
 
   hp: number;
   mp: number;

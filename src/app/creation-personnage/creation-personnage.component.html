@@ -40,10 +40,35 @@
 
             <!-- Infos -->
             <div class="row d-flex align-items-center">
-              <div class="col-12 col-md-7">
-                <h3>Klaff the platypus knight <fa-icon class="btn" [icon]="faPencilAlt"></fa-icon>
-                </h3>
+
+              <!-- Afficher pseudo -->
+              <div class="col-12 col-md-7" [hidden]="this.modifierPseudo">
+                <div class="row d-flex">
+                  <div class="col-auto">
+                    <h3>{{selectedClasse.pseudo}}</h3>
+                  </div>
+                  <div class="col">
+                    <button class="btn">
+                      <fa-icon [icon]="faPencilAlt" (click)="this.modifierPseudo = true"></fa-icon>
+                    </button>
+                  </div>
+                </div>
               </div>
+
+              <!-- Modifier pseudo -->
+              <div class="col-12 col-md-7" [hidden]="!this.modifierPseudo">
+                <div class="row d-flex">
+                  <div class="col-9">
+                    <input type="text" class="form-control" value="{{selectedClasse.pseudo}}">
+                  </div>
+                  <div class="col">
+                    <button class="btn">
+                      <fa-icon [icon]="faCheck" (click)="this.modifierPseudo = false"></fa-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div class="col-12 col-md-3">
                 <h3>{{selectedClasse.name}}</h3>
               </div>
@@ -65,12 +90,10 @@
                 <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
                   HP: {{selectedClasse.hp}}
                   <div class="">
-                    <button class="btn" (click)="plusStatistique('hp')"
-                    [disabled]="disableStatButton('hp', '+')">
+                    <button class="btn" (click)="plusStatistique('hp')" [disabled]="disableStatButton('hp', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
-                    <button class="btn" (click)="minusStatistique('hp')"
-                    [disabled]="disableStatButton('hp', '-')">
+                    <button class="btn" (click)="minusStatistique('hp')" [disabled]="disableStatButton('hp', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
@@ -79,12 +102,10 @@
                 <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
                   MP: {{selectedClasse.mp}}
                   <div class="">
-                    <button class="btn" (click)="plusStatistique('mp')"
-                    [disabled]="disableStatButton('mp', '+')">
+                    <button class="btn" (click)="plusStatistique('mp')" [disabled]="disableStatButton('mp', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
-                    <button class="btn" (click)="minusStatistique('mp')"
-                    [disabled]="disableStatButton('mp', '-')">
+                    <button class="btn" (click)="minusStatistique('mp')" [disabled]="disableStatButton('mp', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
@@ -96,12 +117,11 @@
                 <div class="col-12 statistique m-0 p-0 d-flex justify-content-between">
                   Force: {{selectedClasse.force}}
                   <div class="">
-                    <button class="btn" (click)="plusStatistique('force')"
-                    [disabled]="disableStatButton('force', '+')">
+                    <button class="btn" (click)="plusStatistique('force')" [disabled]="disableStatButton('force', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
                     <button class="btn" (click)="minusStatistique('force')"
-                    [disabled]="disableStatButton('force', '-')">
+                      [disabled]="disableStatButton('force', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
@@ -111,11 +131,11 @@
                   Intelligence: {{selectedClasse.intelligence}}
                   <div class="">
                     <button class="btn" (click)="plusStatistique('intelligence')"
-                    [disabled]="disableStatButton('intelligence', '+')">
+                      [disabled]="disableStatButton('intelligence', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
                     <button class="btn" (click)="minusStatistique('intelligence')"
-                    [disabled]="disableStatButton('intelligence', '-')">
+                      [disabled]="disableStatButton('intelligence', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>
@@ -125,11 +145,11 @@
                   Dextérité: {{selectedClasse.dexterite}}
                   <div class="">
                     <button class="btn" (click)="plusStatistique('dexterite')"
-                    [disabled]="disableStatButton('dexterite', '+')">
+                      [disabled]="disableStatButton('dexterite', '+')">
                       <fa-icon [icon]="faPlusSquare"></fa-icon>
                     </button>
                     <button class="btn" (click)="minusStatistique('dexterite')"
-                    [disabled]="disableStatButton('dexterite', '-')">
+                      [disabled]="disableStatButton('dexterite', '-')">
                       <fa-icon [icon]="faMinusSquare"></fa-icon>
                     </button>
                   </div>

@@ -27,7 +27,7 @@ export class CreationPersonnageService {
     //return this.http.get<Classe>(`${BACKEND_URL}/generation?classe=${classeName}`);
 
     // temp
-    const classeGenerer = new Classe({name: classeName, niveau: 1, hp: 125, mp: 75,
+    const classeGenerer = new Classe({name: classeName, niveau: 1, pseudo: 'Klaff the platypus knight', hp: 125, mp: 75,
       force: 15, minForce: 9, maxForce: 19,
       intelligence: 5, minIntelligence: 2, maxIntelligence: 15,
       dexterite: 13, minDexterite: 6, maxDexterite: 16,
